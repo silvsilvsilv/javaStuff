@@ -1,0 +1,15 @@
+{
+    "maven.terminal.customEnv": [
+        {
+            "environmentVariable": "MAVEN_OPTS",               // variable name
+            "value": "-Xms1024m -Xmx4096m"                     // value
+        },
+        {
+            "environmentVariable": "JAVA_HOME",                // variable name
+            "value": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.8.101-hotspot"      // value
+        }
+    ],
+    "maven.view": "hierarchical",
+    "java.jdt.ls.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.8.101-hotspot",
+    "java.debug.settings.onBuildFailureProceed": true
+}
