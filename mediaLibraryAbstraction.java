@@ -1,13 +1,16 @@
+
 public class mediaLibraryAbstraction 
 {
     public static abstract class MediaItem
     {
         protected String title;
         protected int year;
+
         public int getYear()
         {
             return year;
         }
+        
         abstract void displayInfo();
     }
 
@@ -26,7 +29,7 @@ public class mediaLibraryAbstraction
 
         public void displayInfo()
         {
-            System.out.println("Title: " + title + " Year: " + year);
+            System.out.println("Title: " + title + "\nYear: " + year);
             System.out.println("Author: " + author);
             System.out.println("Book Number: " + bookNumber);
         }
@@ -47,7 +50,7 @@ public class mediaLibraryAbstraction
 
         public void displayInfo()
         {
-            System.out.println("Title: " + title + " Year: " + year);
+            System.out.println("Title: " + title + "\nYear: " + year);
             System.out.println("Director: " + director);
             System.out.println("Genre: " + genre);
         }
@@ -68,94 +71,36 @@ public class mediaLibraryAbstraction
 
         public void displayInfo()
         {
-            System.out.println("Title: " + title + " Year: " + year);
+            System.out.println("Title: " + title + "\nYear: " + year);
             System.out.println("Artist: " + artist);
             System.out.println("Genre: " + genre);
         }
     }
 
-    public static void appendArr(MediaItem[] a, MediaItem element)
+    public static void searchByYear(MediaItem[] lib,int year)
     {
-        MediaItem[] arr = a;
-        MediaItem[] arrNew = new MediaItem[arr.length + 1];
-            
-        int i;
-        for(i = 0; i < arr.length;i++)
+        System.out.println("Searching by year: " + year + "\n");
+
+        for(int i = 0; i < lib.length; i++)
         {
-            arrNew[i] = arr[i];
+            if(lib[i].getYear() == year)
+            {
+                lib[i].displayInfo();
+                System.out.println("===========");
+            }
         }
-
-        arrNew[i] = element;        
-        a = arr;
-    }
-
-    public static void appendArr(String[] a, String element)
-    {
-        String[] arr = a;
-        String[] arrNew = new String[arr.length + 1];
-
-        int i;
-
-        for(i = 0; i < arr.length; i++)
-        {
-            arrNew[i] = arr[i];
-        }
-        arrNew[i] = element;
-
-        a = arr;
-    }
-
-    //TODO: saon mani oy
-    // public void searchByYear(int year, MediaItem lib[])
-    // {
-    //     MediaItem a[] = {};
-
-    //     for(int i = 0; i < lib.length; i++)
-    //     {
-    //         if(lib[i].getYear() == year)
-    //         {
-    //             // TODO: push array chuchu, so that it stores the media items with corresponding year
-    //             appendArr(a, lib[i]);
-    //         }
-    //     }
-    // }
-
-    public static void searchByYear(int year, MediaItem lib)
-    {
-        MediaItem[] a = {};
-
-        appendArr(a, lib);
-        //TODO: make the append arr actually manipulate the "a" array
-
-        System.out.println(a[0].title);
     }
     
     public static void main(String[] args)
     {
-       
-        // Book b = new Book("Sample Title", 2012, "Sample Author", 12);
+        MediaItem[] library = {};
 
-        // b.displayInfo();
+        library = new MediaItem[3];
 
-        // Movie m = new Movie("Django Unchained", 2012, "Quentin Tarantino", "Comedy");
+        library[0] = new Book("Book 1", 2012, "Author Smith", 1);
+        library[1] = new Movie("Django Unchained", 2012, "Quentin Tarantino", "Comedy");
+        library[2] = new MusicAlbum("Igor", 2015, "Tyler the Creator", "HipHop");
 
-        // m.displayInfo();
-
-        // MusicAlbum a = new MusicAlbum("Igor", 2017, "Tyler the Creator", "Hip Hop");
-
-        // a.displayInfo();
-
-        // MediaItem album[] = {b,m,a};
-        // System.out.println(album);
-
-        // Book b = new Book("Title", 2001, "Juan", 2);
-
-        // MediaItem[] album = {b};
-
-        // searchByYear(2001,album[0]);
-        Book b = new Book("Title", 2222, "A", 123);
-
-        System.out.println(b.getYear());
-        
+        searchByYear(library, 2012);
     }
 }

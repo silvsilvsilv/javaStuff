@@ -16,6 +16,7 @@ public class vehicleInheritanceHierarchy
         {
             System.out.println("Vehicle Information\nMake: " + this.make + "\nModel: "+this.model+"\nYear: "+this.year);
         }
+
     }
 
     public static class Car extends Vehicle
@@ -28,9 +29,14 @@ public class vehicleInheritanceHierarchy
             super(make,model,year);
             this.fuelType = fuelType;
         }
+
         public void startEngine()
         {
-            System.out.println("Car engine is starting.\n");
+            if(fuelType == "Diesel")
+            {
+                System.out.println("Car fuel Type is "+fuelType+"\nCar engine is starting.\n");
+            }
+
         }
     }
 
@@ -46,6 +52,7 @@ public class vehicleInheritanceHierarchy
 
         public void ride()
         {
+            System.out.println("Bicycle is in gear " + numberOfGears);
             System.out.println("Riding the bicycle\n");
         }
     }
@@ -62,7 +69,7 @@ public class vehicleInheritanceHierarchy
 
         public void sail()
         {
-            System.out.println("Sailing the boat\n");
+            System.out.println("Sailing the boat\nCurrently sailing on "+waterType);
         }
     }
 
