@@ -1,9 +1,26 @@
+import java.util.Scanner;
+
 public class stringParsingTokenization 
 {
     public static void main(String[] args)
     {
-        String txt = "Hello World!";
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter text to tokenize: ");
+
+        String txt = s.nextLine();
         
+        System.out.println("\nTokenizing string: " + txt + '\n');
+        s.close();
+
+        try 
+        {
+            Thread.sleep(1000);
+        } 
+        catch (InterruptedException ie) 
+        {
+            Thread.currentThread().interrupt();
+        }
+
         txt = txt + " ";
         int numbOfSpace = 0;
 
@@ -41,7 +58,15 @@ public class stringParsingTokenization
         int i = 0;
         while(i < tokens.length - 1)
         {
-            System.out.println(tokens[i]);
+            if (i == tokens.length - 2)
+            {
+                System.out.print(tokens[i]+' ');
+            }
+            else
+            {
+                System.out.print(tokens[i] + ", ");
+            }
+            
             i++;
         }
     }
