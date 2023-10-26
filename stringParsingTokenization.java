@@ -12,15 +12,6 @@ public class stringParsingTokenization
         System.out.println("\nTokenizing string: " + txt + '\n');
         s.close();
 
-        try 
-        {
-            Thread.sleep(1000);
-        } 
-        catch (InterruptedException ie) 
-        {
-            Thread.currentThread().interrupt();
-        }
-
         txt = txt + " ";
         int numbOfSpace = 0;
 
